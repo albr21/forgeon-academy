@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading...</title>
+  <meta name="description" content="Learn technical computer science topics with gamification. Earn XP, level up, unlock achievements." />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+
+  <link rel="stylesheet" href="src/static/styles.css" />
+
+  <style>
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: #0a0e17;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.4s ease;
+    }
+    #loading-screen.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #loading-screen .logo {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #4f8fff 0%, #7c5cff 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 20px;
+      box-shadow: 0 0 40px rgba(79, 143, 255, 0.3);
+      animation: pulse-load 1.5s ease-in-out infinite;
+    }
+    #loading-screen .text {
+      color: #8892a4;
+      font-family: 'Segoe UI', -apple-system, sans-serif;
+      font-size: 14px;
+    }
+    #loading-screen .bar {
+      width: 200px;
+      height: 4px;
+      background: rgba(79,143,255,0.15);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 16px;
+    }
+    #loading-screen .bar-fill {
+      width: 30%;
+      height: 100%;
+      background: linear-gradient(90deg, #4f8fff, #7c5cff);
+      border-radius: 4px;
+      animation: loading-bar 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse-load {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes loading-bar {
+      0% { width: 10%; margin-left: 0; }
+      50% { width: 60%; margin-left: 20%; }
+      100% { width: 10%; margin-left: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="logo"></div>
+    <div class="text">Loading...</div>
+    <div class="bar"><div class="bar-fill"></div></div>
+  </div>
+
+  <div id="root"></div>
+
+  <script src="src/config.js"></script>
+  <script>
+    (function() {
+      var c = window.APP_CONFIG;
+      document.title = c.appName
+      var logo = document.querySelector('#loading-screen .logo');
+      var text = document.querySelector('#loading-screen .text');
+      if (logo) logo.textContent = c.logoLetter;
+      if (text) text.textContent = 'Loading ' + c.appName + '...';
+    })();
+  </script>
+
+  <script src="src/vendor/react.development.js"></script>
+  <script src="src/vendor/react-dom.development.js"></script>
+
+  <script src="src/vendor/skulpt.min.js"></script>
+  <script src="src/vendor/skulpt-stdlib.js"></script>
+
+  <script src="src/vendor/babel.min.js"></script>
+
+  <!-- Individual topic modules (order = display order in sidebar) -->
+  <script src="src/data/topics/welcome.js"></script>
+  <script src="src/data/topics/proxy-certs.js"></script>
+  <script src="src/data/topics/intro-ai.js"></script>
+
+  <script src="src/data/topics.js"></script>
+  <script src="src/data/achievements.js"></script>
+
+  <!-- === Application Modules (auto-loaded by modules.js) === -->
+  <script src="src/modules.js"></script>
+
+  <script>
+    (function() {
+      var checkInterval = setInterval(function() {
+        var root = document.getElementById('root');
+        if (root && root.children.length > 0) {
+          clearInterval(checkInterval);
+          var loadingScreen = document.getElementById('loading-screen');
+          if (loadingScreen) {
+            loadingScreen.classList.add('fade-out');
+            setTimeout(function() {
+              loadingScreen.remove();
+            }, 500);
+          }
+        }
+      }, 100);
+
+      setTimeout(function() {
+        clearInterval(checkInterval);
+        var loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+          loadingScreen.classList.add('fade-out');
+          setTimeout(function() {
+            loadingScreen.remove();
+          }, 500);
+        }
+      }, 15000);
+    })();
+  </script>
+</body>
+</html>
