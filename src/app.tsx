@@ -75,6 +75,12 @@ function App() {
   return (
     <>
       <div className="app-layout">
+        {app.sidebarOpen && (
+          <div
+            className="sidebar-backdrop"
+            onClick={() => app.setSidebarOpen(false)}
+          />
+        )}
         <Sidebar
           currentPage={app.currentPage}
           currentTopicId={app.currentTopicId}

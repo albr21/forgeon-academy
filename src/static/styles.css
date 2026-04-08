@@ -1719,8 +1719,21 @@ a:hover {
   to { transform: rotate(360deg); }
 }
 
+/* === Sidebar Backdrop (Mobile) === */
+.sidebar-backdrop {
+  display: none;
+}
+
 /* === Responsive === */
 @media (max-width: 1024px) {
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+  }
+
   .sidebar {
     transform: translateX(-100%);
   }
