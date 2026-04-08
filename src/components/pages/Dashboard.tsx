@@ -26,7 +26,7 @@ function DashboardPage({
         <h1>Welcome back, {profile.username}! 👋</h1>
         <p>
           You're Level {APP.calculateLevel(profile.xp)} with {profile.xp} XP. Keep learning to level up!
-          {progress.needed > 0 && ` — ${progress.needed - progress.current} XP to next level.`}
+          {progress.needed > 0 && ` - ${progress.needed - progress.current} XP to next level.`}
         </p>
       </div>
 

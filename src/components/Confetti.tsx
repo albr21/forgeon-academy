@@ -1,7 +1,3 @@
-// ============================================
-// Component — Confetti Effect
-// ============================================
-
 function Confetti({ active }: { active: boolean }) {
   if (!active) return null;
 
