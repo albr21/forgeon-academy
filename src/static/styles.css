@@ -325,6 +325,8 @@ a:hover {
   flex: 1;
   margin-left: var(--sidebar-width);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* === Header === */
@@ -336,8 +338,6 @@ a:hover {
   display: flex;
   align-items: center;
   padding: 0 32px;
-  position: sticky;
-  top: 0;
   z-index: 50;
   justify-content: space-between;
 }
@@ -516,7 +516,9 @@ a:hover {
 .page-content {
   padding: 32px;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
+  height: auto;
 }
 
 /* === Home / Dashboard === */
@@ -1849,3 +1851,35 @@ a:hover {
 .text-muted { color: var(--text-muted); }
 .font-bold { font-weight: 700; }
 .w-full { width: 100%; }
+
+/* === Footer === */
+.app-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 16px;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-copyright {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.footer-copyright a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.footer-copyright a:hover {
+  color: var(--accent-teal);
+  text-decoration: underline;
+}

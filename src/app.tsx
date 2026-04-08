@@ -6,6 +6,7 @@ var {
   // Components
   Sidebar,
   Header,
+  Footer,
   ToastContainer,
   Confetti,
   OnboardingModal,
@@ -93,6 +94,7 @@ function App() {
             onToggleTheme={app.toggleTheme}
           />
           {renderPage()}
+          <Footer />
         </main>
       </div>
       <ToastContainer toasts={app.toasts} onRemove={app.removeToast} />

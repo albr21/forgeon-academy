@@ -15,6 +15,7 @@
 
     'src/components/Sidebar.tsx',
     'src/components/Header.tsx',
+    'src/components/Footer.tsx',
     'src/components/Onboarding.tsx',
 
     'src/components/pages/Dashboard.tsx',
