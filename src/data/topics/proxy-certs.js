@@ -23,11 +23,11 @@ Client ← Proxy Server ← Destination Server</code></pre>
 
         <h3>Why Use a Proxy?</h3>
         <ul>
-          <li><strong>Privacy</strong> — Your real IP address is hidden from the destination server</li>
-          <li><strong>Security</strong> — Proxies can filter malicious content and enforce security policies</li>
-          <li><strong>Performance</strong> — Caching proxies store frequently requested resources to speed up access</li>
-          <li><strong>Access Control</strong> — Organizations use proxies to restrict which websites employees can visit</li>
-          <li><strong>Monitoring</strong> — Network administrators can log and analyze traffic passing through the proxy</li>
+          <li><strong>Privacy</strong> - Your real IP address is hidden from the destination server</li>
+          <li><strong>Security</strong> - Proxies can filter malicious content and enforce security policies</li>
+          <li><strong>Performance</strong> - Caching proxies store frequently requested resources to speed up access</li>
+          <li><strong>Access Control</strong> - Organizations use proxies to restrict which websites employees can visit</li>
+          <li><strong>Monitoring</strong> - Network administrators can log and analyze traffic passing through the proxy</li>
         </ul>
 
         <h3>Real-World Analogy</h3>
@@ -68,7 +68,7 @@ Client ← Proxy Server ← Destination Server</code></pre>
         <p><strong>Use cases:</strong> ISP caching, content filtering in public networks, parental controls.</p>
 
         <h3>4. SOCKS Proxy</h3>
-        <p>A SOCKS proxy operates at a lower level (Layer 5 of the OSI model) and can handle any type of traffic — not just HTTP. <code>SOCKS5</code> also supports authentication and UDP.</p>
+        <p>A SOCKS proxy operates at a lower level (Layer 5 of the OSI model) and can handle any type of traffic - not just HTTP. <code>SOCKS5</code> also supports authentication and UDP.</p>
         <p><strong>Use cases:</strong> Torrenting, gaming, general-purpose proxying.</p>
 
         <h3>5. HTTP/HTTPS Proxy</h3>
@@ -98,18 +98,18 @@ Client ← Proxy Server ← Destination Server</code></pre>
 
         <h3>Key Concepts</h3>
         <ul>
-          <li><strong>Symmetric Encryption</strong> — Same key encrypts and decrypts (fast, used for data transfer). Example: AES-256.</li>
-          <li><strong>Asymmetric Encryption</strong> — Public/private key pair (slower, used during handshake). Example: RSA, ECDSA.</li>
-          <li><strong>Perfect Forward Secrecy (PFS)</strong> — Even if the server's private key is compromised, past sessions can't be decrypted. Uses ephemeral keys (ECDHE).</li>
+          <li><strong>Symmetric Encryption</strong> - Same key encrypts and decrypts (fast, used for data transfer). Example: AES-256.</li>
+          <li><strong>Asymmetric Encryption</strong> - Public/private key pair (slower, used during handshake). Example: RSA, ECDSA.</li>
+          <li><strong>Perfect Forward Secrecy (PFS)</strong> - Even if the server's private key is compromised, past sessions can't be decrypted. Uses ephemeral keys (ECDHE).</li>
         </ul>
 
         <h3>SSL vs TLS Versions</h3>
-        <pre><code>SSL 2.0 (1995) — Deprecated ❌
-SSL 3.0 (1996) — Deprecated ❌ (POODLE attack)
-TLS 1.0 (1999) — Deprecated ❌
-TLS 1.1 (2006) — Deprecated ❌
-TLS 1.2 (2008) — Still widely used ✅
-TLS 1.3 (2018) — Current standard ✅ (faster, more secure)</code></pre>
+        <pre><code>SSL 2.0 (1995) - Deprecated ❌
+SSL 3.0 (1996) - Deprecated ❌ (POODLE attack)
+TLS 1.0 (1999) - Deprecated ❌
+TLS 1.1 (2006) - Deprecated ❌
+TLS 1.2 (2008) - Still widely used ✅
+TLS 1.3 (2018) - Current standard ✅ (faster, more secure)</code></pre>
 
         <div class="info-box">
           <div class="info-title">💡 Fun Fact</div>
@@ -128,12 +128,12 @@ TLS 1.3 (2018) — Current standard ✅ (faster, more secure)</code></pre>
 
         <h3>What's Inside a Certificate?</h3>
         <ul>
-          <li><strong>Subject</strong> — The entity the certificate belongs to (e.g., <code>www.example.com</code>)</li>
-          <li><strong>Issuer</strong> — The Certificate Authority (CA) that signed it</li>
-          <li><strong>Public Key</strong> — The subject's public key</li>
-          <li><strong>Validity Period</strong> — Start and expiration dates</li>
-          <li><strong>Serial Number</strong> — Unique identifier</li>
-          <li><strong>Signature</strong> — The CA's digital signature proving authenticity</li>
+          <li><strong>Subject</strong> - The entity the certificate belongs to (e.g., <code>www.example.com</code>)</li>
+          <li><strong>Issuer</strong> - The Certificate Authority (CA) that signed it</li>
+          <li><strong>Public Key</strong> - The subject's public key</li>
+          <li><strong>Validity Period</strong> - Start and expiration dates</li>
+          <li><strong>Serial Number</strong> - Unique identifier</li>
+          <li><strong>Signature</strong> - The CA's digital signature proving authenticity</li>
         </ul>
 
         <h3>Certificate Chain of Trust</h3>
@@ -146,10 +146,10 @@ TLS 1.3 (2018) — Current standard ✅ (faster, more secure)</code></pre>
         <h3>Certificate Authorities (CAs)</h3>
         <p>Major trusted CAs include:</p>
         <ul>
-          <li><strong>Let's Encrypt</strong> — Free, automated certificates (most popular)</li>
-          <li><strong>DigiCert</strong> — Enterprise-grade certificates</li>
-          <li><strong>Sectigo (Comodo)</strong> — Wide range of certificate products</li>
-          <li><strong>GlobalSign</strong> — Enterprise and IoT certificates</li>
+          <li><strong>Let's Encrypt</strong> - Free, automated certificates (most popular)</li>
+          <li><strong>DigiCert</strong> - Enterprise-grade certificates</li>
+          <li><strong>Sectigo (Comodo)</strong> - Wide range of certificate products</li>
+          <li><strong>GlobalSign</strong> - Enterprise and IoT certificates</li>
         </ul>
 
         <div class="warning-box">
@@ -169,10 +169,10 @@ TLS 1.3 (2018) — Current standard ✅ (faster, more secure)</code></pre>
 
         <h3>Common Proxy Headers</h3>
         <ul>
-          <li><code>X-Forwarded-For</code> — Original client IP address</li>
-          <li><code>X-Forwarded-Proto</code> — Original protocol (http/https)</li>
-          <li><code>X-Forwarded-Host</code> — Original host requested</li>
-          <li><code>Via</code> — Intermediate proxies in the chain</li>
+          <li><code>X-Forwarded-For</code> - Original client IP address</li>
+          <li><code>X-Forwarded-Proto</code> - Original protocol (http/https)</li>
+          <li><code>X-Forwarded-Host</code> - Original host requested</li>
+          <li><code>Via</code> - Intermediate proxies in the chain</li>
         </ul>
         <p>Run the code below to see how a proxy processes and enriches HTTP request headers:</p>
       `,
