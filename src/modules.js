@@ -10,6 +10,7 @@
     'src/components/Toast.tsx',
     'src/components/Confetti.tsx',
     'src/components/ProgressRing.tsx',
+    'src/components/Quiz.tsx',
 
     'src/components/CodeSandbox.tsx',
 

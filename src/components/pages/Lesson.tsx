@@ -1,5 +1,5 @@
 var APP = (window as any).APP;
-var { TOPICS, CodeSandbox } = APP;
+var { TOPICS, CodeSandbox, Quiz } = APP;
 
 interface UserProfile {
   completedLessons: string[];
@@ -78,6 +78,15 @@ function LessonPage({
 
         {lesson.code && (
           <CodeSandbox code={lesson.code} onCodeRun={onCodeRun} />
+        )}
+
+        {lesson.quiz && lesson.quiz.length > 0 && (
+          <Quiz
+            questions={lesson.quiz}
+            onPass={() => {
+              if (!isCompleted) onComplete(lesson.id, lesson.xpReward);
+            }}
+          />
         )}
 
         <div className="lesson-actions">
