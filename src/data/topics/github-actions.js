@@ -59,17 +59,12 @@ window.TOPICS.push({
         <p>The GitHub Actions dashboard provides an overview of all workflows, their status, and recent runs for a repository. It allows developers to monitor the health of their CI/CD pipelines, identify issues, and track the progress of automated tasks. It can be accessed from the <strong>Actions</strong> tab of a GitHub repository.</p>
 
         <figure class="screenshot-figure">
-          <img src="src/data/assets/github-actions/screenshots/github-actions-dashboard.svg" alt="Placeholder screenshot of the GitHub Actions tab, listing recent workflow runs" />
+          <img src="src/data/assets/github-actions/screenshots/github-actions-dashboard.png" alt="Placeholder screenshot of the GitHub Actions tab, listing recent workflow runs" />
           <figcaption>The Actions tab, listing recent workflow runs and their status</figcaption>
         </figure>
 
         <h3>Workflow Runs on Pull Requests</h3>
         <p>When a repository is configured to run workflows on pull requests, the status of each run is displayed directly at the bottom of the pull request. This lets reviewers see CI checks, open logs, and spot issues before merging. Checks are attached to the last commit of the pull request and update automatically on every new commit.</p>
-
-        <figure class="screenshot-figure">
-          <img src="src/data/assets/github-actions/screenshots/github-actions-pull-request-checks.svg" alt="Placeholder screenshot of workflow status checks shown on a pull request" />
-          <figcaption>Status checks shown at the bottom of a pull request</figcaption>
-        </figure>
 
         <figure class="diagram-figure">
           <img src="src/data/assets/github-actions/diagrams/svg/workflow-trigger-flow.svg" alt="Sequence diagram showing a developer pushing code, GitHub triggering a workflow, a runner executing the job, and the pull request being updated with the result" />
@@ -188,7 +183,7 @@ jobs:
         <p>They are managed under <strong>Settings &gt; Secrets and variables</strong>, at the repository or organization level.</p>
 
         <figure class="screenshot-figure">
-          <img src="src/data/assets/github-actions/screenshots/github-actions-secrets-and-variables.svg" alt="Placeholder screenshot of the Secrets and variables settings page" />
+          <img src="src/data/assets/github-actions/screenshots/github-actions-secrets-and-variables.png" alt="Placeholder screenshot of the Secrets and variables settings page" />
           <figcaption>Settings &gt; Secrets and variables &gt; Actions</figcaption>
         </figure>
 
@@ -230,7 +225,7 @@ jobs:
         </figure>
 
         <figure class="screenshot-figure">
-          <img src="src/data/assets/github-actions/screenshots/github-actions-runners-settings.svg" alt="Placeholder screenshot of the self-hosted runners settings page" />
+          <img src="src/data/assets/github-actions/screenshots/github-actions-runners-settings.png" alt="Placeholder screenshot of the self-hosted runners settings page" />
           <figcaption>Settings &gt; Actions &gt; Runners - where self-hosted runners are registered and managed</figcaption>
         </figure>
 
