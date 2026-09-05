@@ -1,10 +1,13 @@
-# <project-name>
+# forgeon-academy
 
-<!-- A brief description of the project. -->
+Gamified platform to master tech topics
 
-## Usage
+## Topics
 
-<!-- Provide instructions on how to use the project, including code examples if applicable. -->
+- Privacy Recommendations
+- GitHub Actions
+- Containerization
+- Proxy & Certificate
 
 ## Contributing
 
