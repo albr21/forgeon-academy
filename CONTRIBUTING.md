@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for considering contributing to **<project-name>**! Here’s how you can help:
+Thanks for considering contributing to **forgeon-academy**! Here’s how you can help:
 
 ## How to Contribute
 1. **Fork** the repository
@@ -19,14 +19,20 @@ Thanks for considering contributing to **<project-name>**! Here’s how you can 
 - Ensure that your code passes existing tests and includes new ones for new features or fixes
 
 ## Development Environment
-<!-- Provide instructions on how to set up a development environment for the project. -->
+- Use TSX (TypeScript + React) for frontend development
 
 ## File Architecture
-<!-- Provide an overview of the file architecture of the project, explaining the purpose of key files and directories. -->
+- `src/` - source code for the frontend application
+- `src/components/` - React components used in the application
+- `src/core/` - core logic and utilities for the application
+- `src/data/` - data files used in the application, all topics and assets
+- `src/static/` - static assets like images, fonts, and stylesheets for the application
+- `src/vendor/` - third-party libraries and dependencies used in the application
+
 
 ## Testing
-<!-- Describe the testing framework used and how to run tests. -->
+Launch web app locally with `python3 -m http.server 8080` and open `http://localhost:8080` in your browser to verify your changes don't break the app, or any other web server of your choice.
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the MIT License -- see the [LICENSE](LICENSE) file for details.
+By contributing, you agree that your contributions will be licensed under the AGPL License -- see the [LICENSE](LICENSE) file for details.
