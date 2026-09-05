@@ -75,7 +75,7 @@ window.TOPICS = window.TOPICS || [];
 
           ${appGrid([
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/firefox.svg",
+              logo: "src/data/assets/privacy-recommendation/firefox/logo.svg",
               name: "Mozilla Firefox",
               tagline: "A general-purpose, independent web browser built on Mozilla's own Gecko engine - not another Chromium skin.",
               privacy: [
@@ -89,7 +89,7 @@ window.TOPICS = window.TOPICS || [];
               link: "https://www.mozilla.org/firefox/",
             }),
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/brave.svg",
+              logo: "src/data/assets/privacy-recommendation/brave/logo.png",
               name: "Brave",
               tagline: "A Chromium-based browser with built-in ad and tracker blocking, plus a one-click Tor private window.",
               privacy: [
@@ -103,7 +103,7 @@ window.TOPICS = window.TOPICS || [];
               link: "https://brave.com/",
             }),
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/tor-browser.svg",
+              logo: "src/data/assets/privacy-recommendation/tor-browser/logo.svg",
               name: "Tor Browser",
               tagline: "A hardened Firefox build that routes all traffic through the Tor network for strong anonymity.",
               privacy: [
@@ -130,7 +130,7 @@ window.TOPICS = window.TOPICS || [];
 
           ${appGrid([
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/proton-mail.svg",
+              logo: "src/data/assets/privacy-recommendation/proton/mail.svg",
               name: "Proton Mail",
               tagline: "End-to-end encrypted email hosted in Switzerland, built by the team behind Proton VPN.",
               privacy: [
@@ -157,7 +157,7 @@ window.TOPICS = window.TOPICS || [];
 
           ${appGrid([
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/proton-vpn.svg",
+              logo: "src/data/assets/privacy-recommendation/proton/vpn.svg",
               name: "Proton VPN",
               tagline: "A VPN service with an independently audited no-logs policy and a genuinely usable free tier.",
               privacy: [
@@ -171,7 +171,7 @@ window.TOPICS = window.TOPICS || [];
               link: "https://protonvpn.com/",
             }),
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/mullvad.svg",
+              logo: "src/data/assets/privacy-recommendation/mullvad/logo.svg",
               name: "Mullvad VPN",
               tagline: '"Mullvad" is Swedish for "mole" - fitting, for a VPN that barely wants to know who you are.',
               privacy: [
@@ -198,7 +198,7 @@ window.TOPICS = window.TOPICS || [];
 
           ${appGrid([
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/proton-drive.svg",
+              logo: "src/data/assets/privacy-recommendation/proton/drive.svg",
               name: "Proton Drive",
               tagline: "End-to-end encrypted cloud storage for your files, from the same Swiss-based privacy company.",
               privacy: [
@@ -225,7 +225,7 @@ window.TOPICS = window.TOPICS || [];
 
           ${appGrid([
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/proton-pass.svg",
+              logo: "src/data/assets/privacy-recommendation/proton/pass.svg",
               name: "Proton Pass",
               tagline: "An end-to-end encrypted password manager with built-in email aliases to avoid giving out your real address.",
               privacy: [
@@ -252,7 +252,7 @@ window.TOPICS = window.TOPICS || [];
 
           ${appGrid([
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/proton-authenticator.svg",
+              logo: "src/data/assets/privacy-recommendation/proton/authenticator.svg",
               name: "Proton Authenticator",
               tagline: "A free, open-source TOTP authenticator app for your 2FA codes, with optional encrypted backup/sync.",
               privacy: [
@@ -279,7 +279,7 @@ window.TOPICS = window.TOPICS || [];
 
           ${appGrid([
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/lumo.svg",
+              logo: "src/data/assets/privacy-recommendation/proton/lumo.svg",
               name: "Lumo",
               tagline: "Proton's privacy-focused AI chat assistant, built to answer questions without building an advertising profile on you.",
               privacy: [
@@ -306,7 +306,7 @@ window.TOPICS = window.TOPICS || [];
 
           ${appGrid([
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/newpipe.svg",
+              logo: "src/data/assets/privacy-recommendation/newpipe/logo.svg",
               name: "NewPipe",
               tagline: "A lightweight YouTube (and PeerTube/SoundCloud) client for Android that doesn't need a Google account or the YouTube API.",
               privacy: [
@@ -320,7 +320,7 @@ window.TOPICS = window.TOPICS || [];
               link: "https://newpipe.net/",
             }),
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/xtra.svg",
+              logo: "src/data/assets/privacy-recommendation/xtra/logo.png",
               name: "Xtra",
               tagline: "An open-source, ad-free Twitch client for Android for watching streams, VODs and clips.",
               privacy: [
@@ -334,7 +334,7 @@ window.TOPICS = window.TOPICS || [];
               link: "https://github.com/crackededed/Xtra",
             }),
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/binaryeye.svg",
+              logo: "src/data/assets/privacy-recommendation/binaryeye/logo.svg",
               name: "BinaryEye",
               tagline: "An open-source QR-code and barcode scanner for Android.",
               privacy: [
@@ -348,7 +348,7 @@ window.TOPICS = window.TOPICS || [];
               link: "https://github.com/markusfisch/BinaryEye",
             }),
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/oss-document-scanner.svg",
+              logo: "src/data/assets/privacy-recommendation/oss-document-scanner/logo.png",
               name: "OSS Document Scanner",
               tagline: "An open-source document scanning app that turns your camera into a scanner and exports clean PDFs.",
               privacy: [
@@ -359,7 +359,7 @@ window.TOPICS = window.TOPICS || [];
                 "Fewer advanced OCR/auto-organization features than proprietary apps like Adobe Scan",
                 "Smaller community and update cadence than mainstream alternatives",
               ],
-              link: "https://f-droid.org/packages/",
+              link: "https://github.com/ossappscollective/OSS-DocumentScanner",
             }),
           ])}
         `
@@ -375,7 +375,7 @@ window.TOPICS = window.TOPICS || [];
 
           ${appGrid([
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/yt-dlp.svg",
+              logo: "src/data/assets/privacy-recommendation/yt-dlp/logo.svg",
               name: "yt-dlp",
               tagline: "A command-line tool to download video/audio from YouTube and thousands of other sites - an actively maintained fork of youtube-dl.",
               privacy: [
@@ -389,7 +389,7 @@ window.TOPICS = window.TOPICS || [];
               link: "https://github.com/yt-dlp/yt-dlp",
             }),
             appCard({
-              logo: "src/data/assets/privacy-recommendation/logos/ffmpeg.svg",
+              logo: "src/data/assets/privacy-recommendation/ffmpeg/logo.svg",
               name: "FFmpeg",
               tagline: "The Swiss-army knife for encoding, decoding, and converting audio/video, used under the hood by countless other apps.",
               privacy: [
