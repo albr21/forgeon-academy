@@ -1,8 +1,11 @@
-name: <project-name>
+name: forgeon-academy
 description: |-
-  <project-description>
-version: 0.0.0
+  Gamified platform to master tech topics
+version: 1.0.0
 releases:
+  - version: 1.0.0
+    changes:
+      - Initial release
   - version: 0.0.0
     changes:
       - Under development
