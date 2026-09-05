@@ -1,6 +1,31 @@
 var APP = (window as any).APP;
 var { TOPICS, CodeSandbox, Quiz } = APP;
 
+const COPY_ICON_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+const CHECK_ICON_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+function copyToClipboard(text: string): Promise<void> {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(text);
+  }
+  return new Promise((resolve, reject) => {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      resolve();
+    } catch (err) {
+      reject(err);
+    } finally {
+      document.body.removeChild(textarea);
+    }
+  });
+}
+
 interface UserProfile {
   completedLessons: string[];
 }
@@ -24,6 +49,33 @@ function LessonPage({
 }) {
   const topic = TOPICS.find((t: any) => t.id === topicId);
   const lesson = topic?.lessons.find((l: any) => l.id === lessonId);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = contentRef.current;
+    if (!container) return;
+    container.querySelectorAll('pre').forEach((pre) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'code-copy-btn';
+      btn.setAttribute('aria-label', 'Copy code');
+      btn.title = 'Copy code';
+      btn.innerHTML = COPY_ICON_SVG;
+      btn.addEventListener('click', () => {
+        const code = pre.querySelector('code');
+        const text = (code as HTMLElement)?.innerText ?? pre.innerText;
+        copyToClipboard(text).then(() => {
+          btn.innerHTML = CHECK_ICON_SVG;
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.innerHTML = COPY_ICON_SVG;
+            btn.classList.remove('copied');
+          }, 1500);
+        });
+      });
+      pre.appendChild(btn);
+    });
+  }, [lesson?.id]);
 
   if (!topic || !lesson) {
     return (
@@ -48,7 +100,7 @@ function LessonPage({
           <button className="back-btn" onClick={onBack}>
             ← Back to {topic.title}
           </button>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '8px' }}>
             <span className={`lesson-type-badge ${lesson.type}`} style={{ fontSize: '12px' }}>
               {lesson.type === 'reading' && '📖 '}
               {lesson.type === 'exercise' && '🧩 '}
@@ -74,10 +126,10 @@ function LessonPage({
           </p>
         </div>
 
-        <div className="lesson-content" dangerouslySetInnerHTML={{ __html: lesson.content }} />
+        <div className="lesson-content" ref={contentRef} dangerouslySetInnerHTML={{ __html: lesson.content }} />
 
         {lesson.code && (
-          <CodeSandbox code={lesson.code} onCodeRun={onCodeRun} />
+          <CodeSandbox key={lesson.id} code={lesson.code} onCodeRun={onCodeRun} />
         )}
 
         {lesson.quiz && lesson.quiz.length > 0 && (
@@ -97,7 +149,7 @@ function LessonPage({
               </button>
             )}
           </div>
-          <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
             {!isCompleted ? (
               <button
                 className="btn btn-success"

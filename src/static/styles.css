@@ -177,14 +177,7 @@ a:hover {
 .sidebar-logo .logo-icon {
   width: 36px;
   height: 36px;
-  background: var(--gradient-blue);
   border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff;
   box-shadow: var(--shadow-glow-blue);
 }
 
@@ -323,6 +316,7 @@ a:hover {
 /* === Main Content === */
 .main-content {
   flex: 1;
+  min-width: 0;
   margin-left: var(--sidebar-width);
   min-height: 100vh;
   display: flex;
@@ -346,6 +340,8 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 16px;
+  min-width: 0;
+  flex: 1;
 }
 
 .header-title {
@@ -360,6 +356,8 @@ a:hover {
   gap: 8px;
   font-size: 15px;
   color: var(--text-secondary);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .header-breadcrumb span {
@@ -369,6 +367,10 @@ a:hover {
 .header-breadcrumb .breadcrumb-current {
   color: var(--text-heading);
   font-weight: 600;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .header-breadcrumb .separator {
@@ -379,6 +381,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-shrink: 0;
 }
 
 /* Theme Switch */
@@ -651,6 +654,7 @@ a:hover {
   line-height: 1.5;
   margin-bottom: 16px;
   flex-grow: 1;
+  overflow-wrap: break-word;
 }
 
 .topic-card .topic-meta {
@@ -732,7 +736,8 @@ a:hover {
 .topic-stats-bar {
   display: flex;
   align-items: center;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 12px 24px;
   margin-top: 16px;
   padding: 16px 20px;
   background: var(--bg-card);
@@ -839,6 +844,8 @@ a:hover {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .lesson-type-badge.reading {
@@ -903,6 +910,7 @@ a:hover {
   line-height: 1.8;
   font-size: 15px;
   color: var(--text-primary);
+  overflow-wrap: break-word;
 }
 
 .lesson-content h2 {
@@ -940,6 +948,7 @@ a:hover {
   border-radius: 4px;
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
   font-size: 0.9em;
+  overflow-wrap: break-word;
 }
 
 .lesson-content pre {
@@ -958,6 +967,64 @@ a:hover {
   padding: 0;
   font-size: 14px;
   line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  display: block;
+  padding-right: 36px;
+}
+
+.code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.code-copy-btn svg {
+  flex-shrink: 0;
+}
+
+.code-copy-btn:hover {
+  opacity: 1;
+  color: var(--text-primary);
+}
+
+.code-copy-btn.copied {
+  color: var(--accent-teal);
+  border-color: var(--accent-teal);
+  opacity: 1;
+}
+
+.lesson-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 20px;
+  display: block;
+  overflow-x: auto;
+}
+
+.lesson-content th,
+.lesson-content td {
+  text-align: left;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+}
+
+.lesson-content th {
+  background: rgba(79, 143, 255, 0.1);
+  color: var(--text-primary);
 }
 
 .lesson-content blockquote {
@@ -999,6 +1066,155 @@ a:hover {
   font-size: 14px;
 }
 
+.lesson-content .diagram-figure {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.lesson-content .diagram-figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+.lesson-content .diagram-figure figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.lesson-content .screenshot-figure {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.lesson-content .screenshot-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.lesson-content .screenshot-figure figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.lesson-content .tool-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lesson-content .tool-heading img.tool-logo {
+  height: 28px;
+  width: auto;
+  max-width: 90px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  padding: 3px;
+  flex-shrink: 0;
+}
+
+/* App / Tool Recommendation Cards */
+.lesson-content .app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 16px 0 24px;
+}
+
+.lesson-content .app-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  transition: all var(--transition-normal);
+}
+
+.lesson-content .app-card:hover {
+  border-color: var(--accent-blue);
+  box-shadow: var(--shadow-glow-blue);
+  transform: translateY(-2px);
+}
+
+.lesson-content .app-card .app-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.lesson-content .app-card .app-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.lesson-content .app-card .app-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.lesson-content .app-card .app-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  overflow-wrap: break-word;
+}
+
+.lesson-content .app-card .app-privacy,
+.lesson-content .app-card .app-drawbacks {
+  margin: 0 0 12px 20px;
+  font-size: 13px;
+}
+
+.lesson-content .app-card .app-privacy li {
+  color: var(--accent-teal);
+  margin-bottom: 4px;
+}
+
+.lesson-content .app-card .app-drawbacks li {
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.lesson-content .app-card .app-link {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-blue);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.lesson-content .app-card .app-link:hover {
+  box-shadow: 0 4px 16px rgba(79, 143, 255, 0.35);
+}
+
 /* Complete Lesson Button */
 .lesson-actions {
   margin-top: 40px;
@@ -1007,6 +1223,8 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 /* === Code Sandbox === */
@@ -1076,6 +1294,7 @@ a:hover {
   background: var(--bg-sidebar);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
 }
 
 .sandbox-output {
@@ -1447,6 +1666,7 @@ a:hover {
 .settings-image-preview {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -1767,6 +1987,38 @@ a:hover {
 
   .menu-toggle {
     display: flex !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 16px;
+    gap: 8px;
+  }
+
+  .header-right {
+    gap: 10px;
+  }
+
+  .header-breadcrumb span:not(.breadcrumb-current) {
+    display: none;
+  }
+
+  .header-breadcrumb .breadcrumb-current {
+    flex: 1;
+  }
+
+  .xp-bar-container {
+    display: none;
+  }
+
+  .topic-stats-bar {
+    gap: 10px 16px;
+    padding: 12px 16px;
+  }
+
+  .topic-header h1 {
+    font-size: 22px;
   }
 }
 
@@ -2147,6 +2399,7 @@ a:hover {
   align-items: center;
   gap: 14px;
   padding-top: 4px;
+  flex-wrap: wrap;
 }
 
 .quiz-hint {

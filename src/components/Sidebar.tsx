@@ -35,7 +35,7 @@ function Sidebar({
   return (
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar-logo">
-        <div className="logo-icon">{APP.CONFIG.logoLetter}</div>
+        <img className="logo-icon" src="src/static/favicon.png" alt="" />
         <span className="logo-text">{APP.CONFIG.appName}</span>
       </div>
 
@@ -77,7 +77,7 @@ function Sidebar({
               onClick={() => { onNavigate(PAGE.TOPIC, topic.id); onClose(); }}
             >
               <span className="item-icon">{topic.icon}</span>
-              <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                 {topic.title}
               </span>
               <span className={`item-progress ${isComplete ? 'complete' : ''}`}>
