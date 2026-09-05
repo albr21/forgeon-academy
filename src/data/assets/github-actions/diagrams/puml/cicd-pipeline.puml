@@ -1,0 +1,21 @@
+@startuml cicd-pipeline
+!theme plain
+skinparam backgroundColor transparent
+skinparam arrowColor #4f8fff
+skinparam rectangle {
+  BackgroundColor #eef4ff
+  BorderColor #4f8fff
+  FontColor #14213d
+}
+
+rectangle "Checkout" as checkout
+rectangle "Build" as build
+rectangle "Test" as test
+rectangle "Package" as package
+rectangle "Deploy" as deploy
+
+checkout -right-> build
+build -right-> test
+test -right-> package
+package -right-> deploy
+@enduml

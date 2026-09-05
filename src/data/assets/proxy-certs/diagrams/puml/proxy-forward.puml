@@ -1,0 +1,22 @@
+@startuml proxy-forward
+!theme plain
+skinparam backgroundColor transparent
+skinparam defaultTextAlignment center
+skinparam rectangle {
+  BackgroundColor #eef4ff
+  BorderColor #4f8fff
+  FontColor #14213d
+}
+skinparam arrowColor #4f8fff
+
+rectangle "Client A" as a
+rectangle "Client B" as b
+rectangle "Client C" as c
+rectangle "Forward Proxy" as proxy
+rectangle "Internet" as internet
+
+a -right-> proxy
+b -right-> proxy
+c -right-> proxy
+proxy -right-> internet
+@enduml

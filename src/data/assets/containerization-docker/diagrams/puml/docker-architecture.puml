@@ -1,0 +1,21 @@
+@startuml docker-architecture
+!theme plain
+skinparam backgroundColor transparent
+skinparam rectangle {
+  BackgroundColor #eef4ff
+  BorderColor #4f8fff
+  FontColor #14213d
+}
+skinparam arrowColor #4f8fff
+
+rectangle "Docker Client\n(docker CLI)" as client
+rectangle "Docker Daemon\n(dockerd)" as daemon
+rectangle "Images" as images
+rectangle "Containers" as containers
+rectangle "Registry\n(e.g. Docker Hub)" as registry
+
+client -right-> daemon : commands (build, run, ps, ...)
+daemon -right-> images : builds / stores
+daemon -right-> containers : runs
+daemon -up-> registry : pull / push
+@enduml

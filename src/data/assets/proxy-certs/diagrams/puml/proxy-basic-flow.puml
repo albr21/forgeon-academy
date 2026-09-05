@@ -1,0 +1,16 @@
+@startuml proxy-basic-flow
+!theme plain
+skinparam backgroundColor transparent
+skinparam sequenceArrowColor #4f8fff
+skinparam sequenceLifeLineBorderColor #4f8fff
+skinparam actorBorderColor #4f8fff
+
+actor Client
+participant "Proxy Server" as Proxy
+participant "Destination Server" as Dest
+
+Client -> Proxy : request
+Proxy -> Dest : forwards request
+Dest --> Proxy : response
+Proxy --> Client : forwards response
+@enduml

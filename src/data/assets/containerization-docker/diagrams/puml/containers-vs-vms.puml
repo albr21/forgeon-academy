@@ -1,0 +1,42 @@
+@startuml containers-vs-vms
+!theme plain
+skinparam backgroundColor transparent
+skinparam defaultTextAlignment center
+skinparam rectangle {
+  BackgroundColor #eef4ff
+  BorderColor #4f8fff
+  FontColor #14213d
+}
+skinparam arrowColor #4f8fff
+left to right direction
+
+package "Virtual Machines" {
+  rectangle "App A" as vmAppA
+  rectangle "Guest OS A" as vmOsA
+  rectangle "App B" as vmAppB
+  rectangle "Guest OS B" as vmOsB
+  rectangle "Hypervisor" as hypervisor
+  rectangle "Host OS" as hostOs1
+  rectangle "Infrastructure" as infra1
+
+  vmAppA -down-> vmOsA
+  vmAppB -down-> vmOsB
+  vmOsA -down-> hypervisor
+  vmOsB -down-> hypervisor
+  hypervisor -down-> hostOs1
+  hostOs1 -down-> infra1
+}
+
+package "Containers" {
+  rectangle "App A" as cAppA
+  rectangle "App B" as cAppB
+  rectangle "Container Engine (Docker)" as engine
+  rectangle "Host OS" as hostOs2
+  rectangle "Infrastructure" as infra2
+
+  cAppA -down-> engine
+  cAppB -down-> engine
+  engine -down-> hostOs2
+  hostOs2 -down-> infra2
+}
+@enduml

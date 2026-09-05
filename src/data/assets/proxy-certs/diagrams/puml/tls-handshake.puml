@@ -1,0 +1,16 @@
+@startuml tls-handshake
+!theme plain
+skinparam backgroundColor transparent
+skinparam sequenceArrowColor #4f8fff
+skinparam sequenceLifeLineBorderColor #4f8fff
+
+participant Client
+participant Server
+
+Client -> Server : Client Hello\n(supported cipher suites, TLS version)
+Server -> Client : Server Hello + Certificate\n(chosen cipher suite)
+Client -> Server : Key Exchange\n(derive shared encryption keys)
+Client -> Server : Finished
+Server -> Client : Finished
+note over Client, Server : Encrypted communication begins
+@enduml

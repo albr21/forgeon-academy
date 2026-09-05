@@ -1,0 +1,20 @@
+@startuml certificate-chain
+!theme plain
+skinparam backgroundColor transparent
+skinparam defaultTextAlignment center
+skinparam rectangle {
+  BackgroundColor #eef4ff
+  BorderColor #4f8fff
+  FontColor #14213d
+}
+skinparam arrowColor #4f8fff
+
+rectangle "Root CA Certificate\n(self-signed, pre-installed in OS/browser)" as root
+rectangle "Intermediate CA Certificate\n(signed by Root CA)" as intermediate
+rectangle "Server Certificate\n(signed by Intermediate CA)" as server
+rectangle "www.example.com" as site
+
+root -down-> intermediate : signs
+intermediate -down-> server : signs
+server -down-> site : issued to
+@enduml

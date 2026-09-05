@@ -1,0 +1,23 @@
+@startuml workflow-trigger-flow
+!theme plain
+skinparam backgroundColor transparent
+skinparam sequenceArrowColor #4f8fff
+skinparam sequenceLifeLineBorderColor #4f8fff
+skinparam actorBorderColor #4f8fff
+
+actor "Developer" as dev
+participant "GitHub Repository" as repo
+participant "GitHub Actions\nWorkflow" as workflow
+participant "Runner" as runner
+participant "Pull Request" as pr
+
+dev -> repo : push commit / open pull request
+repo -> workflow : trigger event (push / pull_request)
+workflow -> runner : schedule job(s)
+activate runner
+runner -> runner : execute steps\n(checkout, build, test, ...)
+runner --> workflow : job result (success / failure)
+deactivate runner
+workflow --> pr : update status check
+pr --> dev : shows check result
+@enduml

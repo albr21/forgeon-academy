@@ -5,6 +5,7 @@
     'src/data/topics/privacy-recommendation.js',
     'src/data/topics/github-actions.js',
     'src/data/topics/proxy-certs.js',
+    'src/data/topics/containerization-docker.js',
   ];
 
   var dataScripts = [

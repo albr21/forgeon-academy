@@ -1,0 +1,24 @@
+@startuml runners-types
+!theme plain
+skinparam backgroundColor transparent
+skinparam packageStyle rectangle
+skinparam rectangle {
+  BackgroundColor #eef4ff
+  BorderColor #4f8fff
+  FontColor #14213d
+}
+
+package "GitHub-Hosted Runners" {
+  rectangle "Managed entirely by GitHub\nUbuntu / Windows / macOS images\nFresh virtual machine per job" as ghhosted
+}
+
+package "Self-Hosted Runners" {
+  rectangle "Managed by you\nCustom hardware / OS / software\nPersistent between jobs by default" as selfhosted
+}
+
+package "Ephemeral Self-Hosted Runners" {
+  rectangle "Same as self-hosted,\nbut destroyed after each job\nBetter isolation & security" as ephemeral
+}
+
+selfhosted -down-> ephemeral : hardened by\nrecreating after each job
+@enduml

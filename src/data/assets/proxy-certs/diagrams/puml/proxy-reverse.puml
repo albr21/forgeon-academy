@@ -1,0 +1,22 @@
+@startuml proxy-reverse
+!theme plain
+skinparam backgroundColor transparent
+skinparam defaultTextAlignment center
+skinparam rectangle {
+  BackgroundColor #eef4ff
+  BorderColor #4f8fff
+  FontColor #14213d
+}
+skinparam arrowColor #4f8fff
+
+rectangle "Internet" as internet
+rectangle "Reverse Proxy" as proxy
+rectangle "Server A" as a
+rectangle "Server B" as b
+rectangle "Server C" as c
+
+internet -right-> proxy
+proxy -right-> a
+proxy -right-> b
+proxy -right-> c
+@enduml

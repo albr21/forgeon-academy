@@ -1,0 +1,29 @@
+@startuml concepts-overview
+!theme plain
+skinparam backgroundColor transparent
+skinparam defaultTextAlignment center
+skinparam rectangle {
+  BackgroundColor #eef4ff
+  BorderColor #4f8fff
+  FontColor #14213d
+}
+skinparam arrowColor #4f8fff
+
+rectangle "Event\n(push, pull_request,\nschedule, ...)" as event
+rectangle "Workflow\n.github/workflows/*.yml" as workflow
+rectangle "Job: build" as job1
+rectangle "Job: test" as job2
+rectangle "Step: checkout" as step1
+rectangle "Step: run tests" as step2
+rectangle "Action\n(reusable unit of code)" as action
+rectangle "Runner\n(executes the job)" as runner
+
+event -down-> workflow : triggers
+workflow -down-> job1
+workflow -down-> job2
+job1 -down-> step1
+job1 -down-> step2
+step2 -right-> action : uses
+job1 -down-> runner : runs on
+job2 -down-> runner : runs on
+@enduml
